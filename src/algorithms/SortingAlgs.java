@@ -139,61 +139,6 @@ public class SortingAlgs {
 		//initialise pivot as last value
 		int piv = A[r];
 		
-		//initialise counters for smaller or equal values and strictly equal values
-		int i = p - 1;
-		int k = p - 1;
-		
-		for(int j = p; j < r; j++) {
-			//if element is before pivot, increment smaller region and swap
-			if(A[j] <= piv) {
-				i++;
-				Swap(A, i, j);
-				//if element is the same as pivot, increment equal counter and move to start
-				if(A[i] == piv) {
-					k++;
-					Swap(A, i, k);
-				}
-				
-			}
-		}
-		
-		//increment counters after initial swapping has finished
-		k++;
-		i++;
-		
-		//swap smaller and equal regions
-		for(int l = 0; l < (i-k); l++) {
-			Swap(A, l+p, l+k);
-		}
-		
-		//move original pivot to just after equal region
-		Swap(A, i, r);
-		
-		//return first and last element of equal regions
-		int[] indices = {i-k+p, i};
-		return indices;
-	}
-	
-	
-	public static void QuickSort3WayTest(int[] A, int p, int s) {
-		if(p < s) {
-			//get indices of start and end of section of repeated pivot values
-			int[] indices = Partition3WayTest(A, p, s);
-			int q = indices[0];
-			int r = indices[1];
-			
-			//sort the strictly smaller and strictly larger halves recursively
-			QuickSort3WayTest(A, p, q-1);
-			QuickSort3WayTest(A, r+1, s);
-		}
-	}
-	
-	
-	public static int[] Partition3WayTest(int[] A, int p, int r) {
-		
-		//initialise pivot as last value
-		int piv = A[r];
-		
 		//initialise counters for smaller or equal values and strictly smaller values
 		int i = p - 1;
 		int k = p - 1;
