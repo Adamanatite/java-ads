@@ -229,6 +229,46 @@ public class SortingAlgs {
 	}
 
 	
+	public static void BuildHeap(int[] A, int i, int n) {
+		
+		//Get array index of left and right leaf nodes of i
+		int l = (2 * i) + 1;
+		int r = l + 1;
+		
+		//Find largest node of root and left/right leaves (if they exist)
+		int max;
+		if(l < n && A[l] > A[i]) {
+			max = l;
+		}
+		else {max = i;}
+		if(r < n && A[r] > A[max]) {
+			max = r;
+		}
+		
+		//If a leaf node is the largest, move it to the root and recursively sort its subtree
+		if (max != i) {
+			Swap(A, i, max);
+			BuildHeap(A, max, n);
+		}
+		
+	}
+	
+	public static void  HeapSort(int[] A){
+		
+		//Build original max heap structure
+		for(int i = (A.length / 2) - 1; i > -1; i--) {
+			BuildHeap(A, i, A.length);
+		}
+		
+		for(int j = A.length - 1; j > 0; j--) {
+			// Move max value to the end of array
+			Swap(A, 0, j);
+			//Rebuild max heap structure
+			BuildHeap(A, 0, j);
+		}
+		
+	}
+	
 	//Helper functions to make calling recursive sort functions easier
 	
 	
@@ -240,11 +280,7 @@ public class SortingAlgs {
 	public static void  MergeSort(int[] A){
 		MergeSort(A, 0, A.length - 1);
 		}	
-
 	
-	public static void HeapSort(int[] A) {
-
-	}
 	
 	public static void QuickSort(int[] A) {
 			QuickSort(A, 0, A.length-1);

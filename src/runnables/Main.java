@@ -8,9 +8,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		int[] A = DataGenerators.randomArray(1000, 0, 50000);
+		int[] A = DataGenerators.randomArray(100, 0, 50);
 
-		SortingAlgs.BubbleSort(A);
+		System.out.println(TestAndTime.IsSorted(A));
+		SortingAlgs.HeapSort(A);
+		System.out.println(TestAndTime.IsSorted(A));
 				
 	}
 	
