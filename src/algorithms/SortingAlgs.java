@@ -11,6 +11,81 @@ public class SortingAlgs {
 	}
 	
 	
+	public static void  BubbleSort(int[] A){
+		
+		for(int i = 0; i < A.length - 1; i++) {
+			for(int j = 0; j < A.length - 1 - i; j++) {
+				if(A[j] > A[j+1]) {
+					Swap(A, j, j+1);
+				}
+			}
+		}
+	}
+	
+	public static void InsertionSort(int[] a, int start, int end) {
+		for(int j = start + 1; j < end + 1; j++) {
+			//initialise key
+			int key = a[j];
+			int i = j - 1;
+			//move up all larger elements before the key in the array
+			while(i >= 0 && a[i] > key) {
+				a[i+1] = a[i];
+				i--;
+			}
+			//insert key in correct place
+			a[i+1] = key;
+		}	
+	}
+	
+	
+	public static void Merge(int[] A, int p, int q, int r) {
+		//Create an array for each half
+		int n1 = q - p + 1;
+		int n2 = r - q;
+		
+		int[] L = new int[n1 + 1];
+		int[] R = new int[n2 + 1];
+		
+		//Copy halves over and add a max value at the end of each
+		for(int c1 = p; c1 < q+1; c1++) {
+			L[c1-p] = A[c1]; 
+		}
+		L[n1] = Integer.MAX_VALUE;
+		
+		for(int c2 = q+1; c2 < r+1; c2++) {
+			R[c2-q-1] = A[c2]; 
+		}
+		R[n2] = Integer.MAX_VALUE;
+		
+		//merge 2 arrays
+		int i = 0; int j = 0;
+		for(int k = p; k < r + 1; k++) {
+			//if left is smaller, increment i and add to main array
+			if(L[i] <= R[j]) {
+				A[k] = L[i];
+				i++;
+			}
+			//if right is smaller, increment j and add to main array
+			else {
+				A[k] = R[j];
+				j++;
+			}
+		}
+	}
+	
+	
+	public static void  MergeSort(int[] A, int p, int r){
+		if(p < r) {
+			//Split into 2 halves
+			int q = (p+r) / 2;
+			MergeSort(A, p, q);
+			MergeSort(A, q+1, r);
+			//Merge 2 halves
+			Merge(A, p, q, r);
+		}
+	}	
+	
+	
 	public static void QuickSort(int[] A, int p, int r) {
 		if(p < r) {
 			//Partition array and sort each half
@@ -57,22 +132,6 @@ public class SortingAlgs {
 			}
 
 		}
-	}
-	
-	
-	public static void InsertionSort(int[] a, int start, int end) {
-		for(int j = start + 1; j < end + 1; j++) {
-			//initialise key
-			int key = a[j];
-			int i = j - 1;
-			//move up all larger elements before the key in the array
-			while(i >= 0 && a[i] > key) {
-				a[i+1] = a[i];
-				i--;
-			}
-			//insert key in correct place
-			a[i+1] = key;
-		}	
 	}
 	
 	
@@ -168,55 +227,42 @@ public class SortingAlgs {
 		int[] indices = {k, i};
 		return indices;
 	}
+
+	
+	//Helper functions to make calling recursive sort functions easier
 	
 	
+	public static void  InsertionSort(int[] A){
+		InsertionSort(A, 0, A.length - 1);
+		}
 	
-	public static void Merge(int[] A, int p, int q, int r) {
-		//Create an array for each half
-		int n1 = q - p + 1;
-		int n2 = r - q;
-		
-		int[] L = new int[n1 + 1];
-		int[] R = new int[n2 + 1];
-		
-		//Copy halves over and add a max value at the end of each
-		for(int c1 = p; c1 < q+1; c1++) {
-			L[c1-p] = A[c1]; 
-		}
-		L[n1] = Integer.MAX_VALUE;
-		
-		for(int c2 = q+1; c2 < r+1; c2++) {
-			R[c2-q-1] = A[c2]; 
-		}
-		R[n2] = Integer.MAX_VALUE;
-		
-		//merge 2 arrays
-		int i = 0; int j = 0;
-		for(int k = p; k < r + 1; k++) {
-			//if left is smaller, increment i and add to main array
-			if(L[i] <= R[j]) {
-				A[k] = L[i];
-				i++;
-			}
-			//if right is smaller, increment j and add to main array
-			else {
-				A[k] = R[j];
-				j++;
-			}
-		}
+	
+	public static void  MergeSort(int[] A){
+		MergeSort(A, 0, A.length - 1);
+		}	
+
+	
+	public static void HeapSort(int[] A) {
+
+	}
+	
+	public static void QuickSort(int[] A) {
+			QuickSort(A, 0, A.length-1);
 	}
 	
 	
-	public static void  MergeSort(int[] A, int p, int r){
-		if(p < r) {
-			//Split into 2 halves
-			int q = (p+r) / 2;
-			MergeSort(A, p, q);
-			MergeSort(A, q+1, r);
-			//Merge 2 halves
-			Merge(A, p, q, r);
-		}
-	}	
+	public static void HybridQuickSort(int[] A, int k) {
+		HybridQuickSort(A, 0, A.length - 1, k);
+	}
 	
-
+	
+	public static void QuickSortMO3(int[] A) {
+		QuickSortMO3(A, 0, A.length - 1);
+	}
+	
+	public static void QuickSort3Way(int[] A) {
+		QuickSort3Way(A, 0, A.length - 1);
+	}
+	
+	
 }
