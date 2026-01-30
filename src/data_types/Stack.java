@@ -1,10 +1,13 @@
 package data_types;
 
+/**
+ * Provides functionality for the stack abstract data structure using a linked list implementation
+ * */
 public class Stack<Item> {
 
 	private Node head; // head of stack
-	
-	
+
+	/*Linked list node containing a value*/
 	private class Node{
 		private Item key; 
 		private Node next; 
@@ -23,7 +26,7 @@ public class Stack<Item> {
 	
 	//METHODS
 	
-	
+	/*Adds a new node to the stack*/
 	private void push(Node x) {
 		
 		x.next = this.head;
@@ -31,24 +34,24 @@ public class Stack<Item> {
 
 	}	
 	
-	
+	/*Adds a new item to the stack*/
 	public void push(Item x) {
 		//create node and add
 		Node n = new Node(x);
 		this.push(n);
 	}
 	
-	
+	/*Returns the next value on the stack*/
 	public Item peek() {
 		return this.head.key;
 	}
 	
-	
-	private boolean isEmpty() {
+	/*Returns if the stack is empty*/
+	public boolean isEmpty() {
 		return (this.head == null);
 	}
 	
-	
+	/*Removes the next node from the stack and returns its value*/
 	public Item pop() {
 
 		if(this.isEmpty()) {
@@ -61,6 +64,7 @@ public class Stack<Item> {
 		
 	}
 	
+	/*Prints a readable representation of the stack*/
 	public void print() {
 		if (this.isEmpty()) {
 			System.out.println("<Empty Stack>");

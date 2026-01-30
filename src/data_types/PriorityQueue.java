@@ -1,7 +1,11 @@
 package data_types;
 
+/**
+ * Provides the functionality of a priority queue abstract data structure, using a linked list
+ * */
 public class PriorityQueue<Item> {
 
+	/**Linked list node containing a value and a priority*/
 	private class Node implements Comparable<Node> {
 		private Item key; 
 		private int priority;
@@ -30,11 +34,12 @@ public class PriorityQueue<Item> {
 				
 		//METHODS
 		
-		
+		/**Add a new node to the queue*/
 		private void push(Node x) {
 			
 			if(this.head == null) {
-				this.head = x;				
+				this.head = x;
+				return;
 			}
 			
 			Node m = this.head;
@@ -50,24 +55,24 @@ public class PriorityQueue<Item> {
 
 		}	
 		
-		
+		/**Add a new item to the queue*/
 		public void push(Item x, int priority) {
 			//create node and add
 			Node n = new Node(x, priority);
 			this.push(n);
 		}
 		
-		
+		/**Check the front of the queue*/
 		public Item peek() {
 			return this.head.key;
 		}
 		
-		
-		private boolean isEmpty() {
+		/**Returns if the queue is empty*/
+		public boolean isEmpty() {
 			return (this.head == null);
 		}
 		
-		
+		/**Removes the next node from the queue and returns it*/
 		public Item pop() {
 
 			if(this.isEmpty()) {
@@ -80,6 +85,7 @@ public class PriorityQueue<Item> {
 			
 		}
 		
+		/**Prints a readable representation of the queue*/
 		public void print() {
 			if (this.head == null) {
 				System.out.println("<Empty Queue>");

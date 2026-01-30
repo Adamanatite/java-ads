@@ -2,6 +2,9 @@ package helpers;
 
 import java.util.Random;
 
+import data_types.BTree;
+import data_types.BTree.Node;
+
 public class DataGenerators {
 
 	public static int[] pathologicalArray(int n) {
@@ -19,7 +22,8 @@ public class DataGenerators {
 		//Return generated array
 		return A;
 	}
-	
+
+	/*Generates a random integer array of a given size with values between a minimum and maximum value*/
 	public static int[] randomArray(int size, int min, int max) {
 
 		int[] A = new int[size];
@@ -30,6 +34,46 @@ public class DataGenerators {
 		}
 
 		return A;
+	}
+	
+	
+	public static BTree getDeleteExampleTree() {
+		
+		//Example tree taken from https://github.com/msambol/dsa/blob/master/trees/b_tree.py
+		
+		BTree b = new BTree(3);
+		
+		//Add nodes in specific order to construct tree
+		b.insert(1);
+		b.insert(90);
+		b.insert(9);
+		b.insert(72);
+		b.insert(40);
+		b.insert(22);
+		b.insert(55);
+		b.insert(39);
+		b.insert(31);
+		b.insert(15);
+		b.insert(21);
+		b.insert(19);
+		b.insert(17);
+		b.insert(41);
+		b.insert(47);
+		b.insert(50);
+		b.insert(56);
+		b.insert(60);
+		b.insert(63);
+		b.insert(100);
+		b.insert(30);
+		b.insert(23);
+		b.insert(25);
+		b.insert(27);
+		b.insert(32);
+		
+		//Remove the extra 100 added to split nodes properly
+		b.getRoot().getChild(1).getChild(2).setK(2);
+
+		return b;
 	}
 	
 	

@@ -3,14 +3,24 @@ package algorithms;
 public class SortingAlgs {
 	
 	
-	//Helper function to swap 2 indices in an array
+	/**
+	 * Helper function to swap 2 indices in an array
+	 *
+	 * @param A The array to perform the swap on
+	 * @param i1 The first integer to swap
+	 * @param i2 The second integer to swap
+	 */
 	public static void Swap(int[] A, int i1, int i2) {
 		int swap = A[i1];
 		A[i1] = A[i2];
 		A[i2] = swap;
 	}
 	
-	
+	/**
+	 * Sorts an array in O(n^2) time
+	 *
+	 * @param A The array to sort
+	 */
 	public static void  BubbleSort(int[] A){
 		
 		for(int i = 0; i < A.length - 1; i++) {
@@ -22,22 +32,36 @@ public class SortingAlgs {
 		}
 	}
 	
-	public static void InsertionSort(int[] a, int start, int end) {
+	/**
+	 * Sorts an subarray in O(n^2) time
+	 *
+	 * @param A The array to sort
+	 * @param start The starting index of the subarray
+	 * @param end The ending index of the subarray
+	 */
+	public static void InsertionSort(int[] A, int start, int end) {
 		for(int j = start + 1; j < end + 1; j++) {
 			//initialise key
-			int key = a[j];
+			int key = A[j];
 			int i = j - 1;
 			//move up all larger elements before the key in the array
-			while(i >= 0 && a[i] > key) {
-				a[i+1] = a[i];
+			while(i >= 0 && A[i] > key) {
+				A[i+1] = A[i];
 				i--;
 			}
 			//insert key in correct place
-			a[i+1] = key;
+			A[i+1] = key;
 		}	
 	}
 	
-	
+	/**
+	 * Merges two subarrays and ensures it is sorted
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param q The midpoint index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static void Merge(int[] A, int p, int q, int r) {
 		//Create an array for each half
 		int n1 = q - p + 1;
@@ -73,7 +97,13 @@ public class SortingAlgs {
 		}
 	}
 	
-	
+	/**
+	 * Sorts a subarray in O(nlogn) time
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static void  MergeSort(int[] A, int p, int r){
 		if(p < r) {
 			//Split into 2 halves
@@ -85,7 +115,13 @@ public class SortingAlgs {
 		}
 	}	
 	
-	
+	/**
+	 * Sorts a subarray in O(nlogn) time
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static void QuickSort(int[] A, int p, int r) {
 		if(p < r) {
 			//Partition array and sort each half
@@ -95,7 +131,13 @@ public class SortingAlgs {
 		}
 	}
 	
-	
+	/**
+	 * Sorts partitions a subarray around a pivot, sorting into sections lower than and greater than the pivot
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static int Partition(int[] A, int p, int r) {
 		
 		//initialise pivot as last element
@@ -116,7 +158,14 @@ public class SortingAlgs {
 	}
 	
 	
-	
+	/**
+	 * Partitions a subarray and sorts the partitions using insertion sort or quicksort
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 * @param k The point below which insertion sort is used instead of quicksort
+	 */
 	public static void HybridQuickSort(int[] A, int p, int r, int k) {
 		if(p < r) {
 			//Partition into 2 halves, then either sort recursively or with insertion sort depending
@@ -134,7 +183,13 @@ public class SortingAlgs {
 		}
 	}
 	
-	
+	/**
+	 * Sorts a subarray in O(nlogn) time using the median of 3 partitioning scheme
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static void QuickSortMO3(int[] A, int p, int r) {
 		if(p < r) {
 			//Partition array and sort each half
@@ -144,7 +199,13 @@ public class SortingAlgs {
 		}
 	}
 	
-	
+	/**
+	 * Partitions a subarray using the median of 3 partitioning scheme
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static int PartitionMO3(int[] A, int p, int r) {
 		
 		//Sort the start, middle and end elements of the array so the median is last
@@ -178,7 +239,13 @@ public class SortingAlgs {
 		return i + 1;
 	}
 	
-	
+	/**
+	 * Sorts a subarray in O(nlogn) time using a modified quicksort which also sorts values equal to the pivot
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param s The ending index of the subarray
+	 */
 	public static void QuickSort3Way(int[] A, int p, int s) {
 		if(p < s) {
 			//get indices of start and end of section of repeated pivot values
@@ -192,7 +259,13 @@ public class SortingAlgs {
 		}
 	}
 	
-	
+	/**
+	 * Partitions a subarray into values lower than the pivot, equal to the pivot and greater than the pivot
+	 *
+	 * @param A The array to sort
+	 * @param p The starting index of the subarray
+	 * @param r The ending index of the subarray
+	 */
 	public static int[] Partition3Way(int[] A, int p, int r) {
 		
 		//initialise pivot as last value
@@ -220,7 +293,7 @@ public class SortingAlgs {
 		k++;
 		i++;
 		
-		//move original pivot to just after equal region
+		//move original pivot to end of equal region
 		Swap(A, i, r);
 		
 		//return first and last element of equal regions
@@ -229,6 +302,13 @@ public class SortingAlgs {
 	}
 
 	
+	/**
+	 * Builds a heap structure used for sorting
+	 *
+	 * @param A The array to sort
+	 * @param i The starting index of the subarray
+	 * @param n The ending index of the subarray
+	 */
 	public static void BuildHeap(int[] A, int i, int n) {
 		
 		//Get array index of left and right leaf nodes of i
@@ -253,6 +333,11 @@ public class SortingAlgs {
 		
 	}
 	
+	/**
+	 * Sorts an array in O(nlogn) time
+	 *
+	 * @param A The array to sort
+	 */
 	public static void  HeapSort(int[] A){
 		
 		//Build original max heap structure
@@ -271,31 +356,57 @@ public class SortingAlgs {
 	
 	//Helper functions to make calling recursive sort functions easier
 	
-	
+	/**
+	 * Sorts an array in O(n^2) time
+	 *
+	 * @param A The array to sort
+	 */
 	public static void  InsertionSort(int[] A){
 		InsertionSort(A, 0, A.length - 1);
 		}
 	
-	
+	/**
+	 * Sorts an array in O(nlogn) time
+	 *
+	 * @param A The array to sort
+	 */
 	public static void  MergeSort(int[] A){
 		MergeSort(A, 0, A.length - 1);
 		}	
 	
-	
+	/**
+	 * Sorts an array in O(nlogn) time
+	 *
+	 * @param A The array to sort
+	 */
 	public static void QuickSort(int[] A) {
 			QuickSort(A, 0, A.length-1);
 	}
 	
-	
+	/**
+	 * Sorts an array in O(nlogn) time. Sorts all subarrays under a certain limit using insertion sort
+	 *
+	 * @param A The array to sort
+	 * @param k The limit under which subarrays will be sorted using insertion sort
+	 */
 	public static void HybridQuickSort(int[] A, int k) {
 		HybridQuickSort(A, 0, A.length - 1, k);
 	}
 	
-	
+	/**
+	 * Sorts an array in O(nlogn) time. Uses the median of 3 method for selecting a pivot.
+	 *
+	 * @param A The array to sort
+	 */
 	public static void QuickSortMO3(int[] A) {
 		QuickSortMO3(A, 0, A.length - 1);
 	}
 	
+	/**
+	 * Sorts an array in O(nlogn) time. Sorts all values equal to the pivot (useful when there are many duplicate elements in the array).
+	 *
+	 * @param A The array to sort
+	 */
 	public static void QuickSort3Way(int[] A) {
 		QuickSort3Way(A, 0, A.length - 1);
 	}

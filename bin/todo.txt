@@ -1,0 +1,4 @@
+-Work out abstract types and concrete implementations to implement and make difference clearer
+-Finish B-Tree
+-Heap structure for priority?
+-Graph setup and algorithms
