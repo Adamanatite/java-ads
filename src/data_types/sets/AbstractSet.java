@@ -15,7 +15,9 @@ public interface AbstractSet<Item extends Comparable<Item>> {
 	AbstractSet<Item> union(AbstractSet<Item> S);
 	AbstractSet<Item> intersection(AbstractSet<Item> S);
 	AbstractSet<Item> difference(AbstractSet<Item> S);
-	boolean subset(AbstractSet<Item> S);
+	default boolean is_subset_of(AbstractSet<Item> S) {
+		return this.difference(S).set_empty();
+	};
 	
 	//Useful shared methods
 	void print();

@@ -2,7 +2,11 @@ package helpers;
 
 public class TestAndTime {
 	
-	
+	/**Checks if a given array is sorted
+	 * 
+	 * @param a The array to check
+	 * @return is_sorted True if the array is sorted
+	 * */
 	public static boolean IsSorted(int[] a) {
 		
 		int n = a.length;

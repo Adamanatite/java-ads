@@ -26,7 +26,10 @@ public class Stack<Item> {
 	
 	//METHODS
 	
-	/*Adds a new node to the stack*/
+	/**Adds a new node to the stack
+	 * 
+	 * @param x The node to add
+	 * */
 	private void push(Node x) {
 		
 		x.next = this.head;
@@ -34,24 +37,40 @@ public class Stack<Item> {
 
 	}	
 	
-	/*Adds a new item to the stack*/
+	
+	/**Adds a new item to the stack
+	 * 
+	 * @param x The item to add
+	 * */
 	public void push(Item x) {
 		//create node and add
 		Node n = new Node(x);
 		this.push(n);
 	}
 	
-	/*Returns the next value on the stack*/
+	
+	/**Returns the next value on the stack
+	 * 
+	 * @return i The next item on the stack
+	 * */
 	public Item peek() {
 		return this.head.key;
 	}
 	
-	/*Returns if the stack is empty*/
+	
+	/**Returns if the stack is empty
+	 * 
+	 * @param is_empty True if the stack is empty
+	 * */
 	public boolean isEmpty() {
 		return (this.head == null);
 	}
 	
-	/*Removes the next node from the stack and returns its value*/
+	
+	/**Removes the next node from the stack and returns its value
+	 * 
+	 * @return i The next item on the stack
+	 * */
 	public Item pop() {
 
 		if(this.isEmpty()) {
@@ -63,6 +82,7 @@ public class Stack<Item> {
 		return i;
 		
 	}
+	
 	
 	/*Prints a readable representation of the stack*/
 	public void print() {

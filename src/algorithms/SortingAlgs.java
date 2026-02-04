@@ -16,6 +16,7 @@ public class SortingAlgs {
 		A[i2] = swap;
 	}
 	
+	
 	/**
 	 * Sorts an array in O(n^2) time
 	 *
@@ -31,6 +32,7 @@ public class SortingAlgs {
 			}
 		}
 	}
+	
 	
 	/**
 	 * Sorts an subarray in O(n^2) time
@@ -53,6 +55,7 @@ public class SortingAlgs {
 			A[i+1] = key;
 		}	
 	}
+	
 	
 	/**
 	 * Merges two subarrays and ensures it is sorted
@@ -97,6 +100,7 @@ public class SortingAlgs {
 		}
 	}
 	
+	
 	/**
 	 * Sorts a subarray in O(nlogn) time
 	 *
@@ -115,6 +119,7 @@ public class SortingAlgs {
 		}
 	}	
 	
+	
 	/**
 	 * Sorts a subarray in O(nlogn) time
 	 *
@@ -130,6 +135,7 @@ public class SortingAlgs {
 			QuickSort(A, q+1, r);
 		}
 	}
+	
 	
 	/**
 	 * Sorts partitions a subarray around a pivot, sorting into sections lower than and greater than the pivot
@@ -183,6 +189,7 @@ public class SortingAlgs {
 		}
 	}
 	
+	
 	/**
 	 * Sorts a subarray in O(nlogn) time using the median of 3 partitioning scheme
 	 *
@@ -198,6 +205,7 @@ public class SortingAlgs {
 			QuickSort(A, q+1, r);
 		}
 	}
+	
 	
 	/**
 	 * Partitions a subarray using the median of 3 partitioning scheme
@@ -239,6 +247,7 @@ public class SortingAlgs {
 		return i + 1;
 	}
 	
+	
 	/**
 	 * Sorts a subarray in O(nlogn) time using a modified quicksort which also sorts values equal to the pivot
 	 *
@@ -258,6 +267,7 @@ public class SortingAlgs {
 			QuickSort3Way(A, r+1, s);
 		}
 	}
+	
 	
 	/**
 	 * Partitions a subarray into values lower than the pivot, equal to the pivot and greater than the pivot
@@ -333,6 +343,7 @@ public class SortingAlgs {
 		
 	}
 	
+	
 	/**
 	 * Sorts an array in O(nlogn) time
 	 *
@@ -354,6 +365,7 @@ public class SortingAlgs {
 		
 	}
 	
+	
 	//Helper functions to make calling recursive sort functions easier
 	
 	/**
@@ -365,6 +377,7 @@ public class SortingAlgs {
 		InsertionSort(A, 0, A.length - 1);
 		}
 	
+	
 	/**
 	 * Sorts an array in O(nlogn) time
 	 *
@@ -374,6 +387,7 @@ public class SortingAlgs {
 		MergeSort(A, 0, A.length - 1);
 		}	
 	
+	
 	/**
 	 * Sorts an array in O(nlogn) time
 	 *
@@ -382,6 +396,7 @@ public class SortingAlgs {
 	public static void QuickSort(int[] A) {
 			QuickSort(A, 0, A.length-1);
 	}
+	
 	
 	/**
 	 * Sorts an array in O(nlogn) time. Sorts all subarrays under a certain limit using insertion sort
@@ -393,6 +408,7 @@ public class SortingAlgs {
 		HybridQuickSort(A, 0, A.length - 1, k);
 	}
 	
+	
 	/**
 	 * Sorts an array in O(nlogn) time. Uses the median of 3 method for selecting a pivot.
 	 *
@@ -401,6 +417,7 @@ public class SortingAlgs {
 	public static void QuickSortMO3(int[] A) {
 		QuickSortMO3(A, 0, A.length - 1);
 	}
+	
 	
 	/**
 	 * Sorts an array in O(nlogn) time. Sorts all values equal to the pivot (useful when there are many duplicate elements in the array).

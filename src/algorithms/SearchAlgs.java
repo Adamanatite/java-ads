@@ -2,6 +2,7 @@ package algorithms;
 
 public class SearchAlgs {
 
+	
 	/**
 	 * Returns the index of a key in sorted array, or -1 if it doesn't exist
 	 *
@@ -12,6 +13,7 @@ public class SearchAlgs {
 	public static int BinarySearch(int[] A, int key){
 		return BinarySearch(A, key, 0, A.length - 1);
 	}
+	
 	
 	/**
 	 * Searches the given array for a specified value between a minimum and maximum index

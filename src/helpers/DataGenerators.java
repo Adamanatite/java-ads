@@ -6,7 +6,12 @@ import data_types.BTree;
 import data_types.BTree.Node;
 
 public class DataGenerators {
-
+	
+	/**Generates a pathological array (worst case for sorting algorithms)
+	 * 
+	 * @param n The size of the array
+	 * @return A The generated array
+	 * */
 	public static int[] pathologicalArray(int n) {
 		
 		//Create array of size n
@@ -23,7 +28,13 @@ public class DataGenerators {
 		return A;
 	}
 
-	/*Generates a random integer array of a given size with values between a minimum and maximum value*/
+	/**Generates a random integer array of a given size with values between a minimum and maximum value
+	 * 
+	 * @param size The size of the array
+	 * @param min The minimum value any index can take
+	 * @param max The maximum value any index can take
+	 * @return A The generated array
+	 * */
 	public static int[] randomArray(int size, int min, int max) {
 
 		int[] A = new int[size];
@@ -36,7 +47,7 @@ public class DataGenerators {
 		return A;
 	}
 	
-	
+	//Generates an example tree to test the delete methods
 	public static BTree getDeleteExampleTree() {
 		
 		//Example tree taken from https://github.com/msambol/dsa/blob/master/trees/b_tree.py

@@ -27,6 +27,7 @@ public class BTree {
 		
 		public Node parent;
 
+		
 		/**
 		 * Constructs a parentless node
 		 */
@@ -35,6 +36,7 @@ public class BTree {
 			this.keys = new int[(2 * t) -1];
 			this.parent = null;
 		}
+		
 		
 		/**
 		 * Constructs a node with a given parent
@@ -48,6 +50,11 @@ public class BTree {
 		}
 
 		
+		/**Prints a readable version of a subtree
+		 * 
+		 * @param d The depth of the current iteration
+		 * @param b The breadth of the current iteration
+		 * */
 		private void print(int d, int b) {
 			
 			System.out.print(d + "-" + b + "[");
@@ -79,12 +86,14 @@ public class BTree {
 			}
 		}
 
+		
 		/**
 		 * Prints a representation of the node and its children, including values contained within
 		 */
 		public void print() {
 			this.print(0, 0);
 		}
+		
 		
 		/**
 		 * True if this node is a leaf node (it has no children)
@@ -103,6 +112,7 @@ public class BTree {
 		public void setK(int newK) {
 			this.k = newK;
 		}
+		
 		
 		/**
 		 * Inserts a value into the node in the correct order
@@ -149,16 +159,19 @@ public class BTree {
 		}
 	}
 	
+	
 	public BTree(){
 		this.t = DEFAULT_T;
 		root = new Node();
 	}
+	
 	
 	public BTree(int n){
 		this.t = n;
 		root = new Node();
 		
 	}	
+	
 	
 	public Node getRoot() {
 		return this.root;
@@ -168,6 +181,7 @@ public class BTree {
 	private boolean isFull(Node n) {
 		return (n.k == (2 * t) - 1);
 	}
+	
 	
 	private Node binaryTreeSearch(Node n, int key, int min, int max) {
 		
@@ -195,6 +209,7 @@ public class BTree {
 		
 	}
 	
+	
 	/** Returns the node containing the search value, or null if it is not in the database
 	 * 	@param v The value to search the tree for
 	 *  @return the node containing v, or null if there is no such node
@@ -207,6 +222,7 @@ public class BTree {
 		return this.binaryTreeSearch(n, v, 0, n.k - 1);
 	}
 	
+	
 	/** Prints the tree contents in a readable form */
 	public void print() {
 		//Print if empty
@@ -218,6 +234,7 @@ public class BTree {
 		n.print();
 		System.out.println();
 	}
+	
 	
 	private void splitChild (Node n, int i) {
 		
@@ -282,6 +299,7 @@ public class BTree {
 		return;
 	}
 	
+	
 	/** Adds a list of values into the tree one by one
 	 * 
 	 * @param vs The list of values to insert
@@ -293,9 +311,7 @@ public class BTree {
 	}
 	
 	
-	
 	//Delete based on https://www.youtube.com/watch?v=pN4C8cLVc7I
-	
 	
 	/**Removes a given value from the tree if it exists
 	 * 
@@ -536,6 +552,7 @@ public class BTree {
 		}
 		
 	};
+	
 	
 	private void deleteSibling(Node n, int i, int j) {
 		

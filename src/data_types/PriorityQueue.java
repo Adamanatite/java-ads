@@ -31,10 +31,14 @@ public class PriorityQueue<Item> {
 	}
 	
 	private Node head;
-				
+			
+	
 		//METHODS
 		
-		/**Add a new node to the queue*/
+		/**Add a new node to the queue
+		 * 
+		 * @param x The new node to add
+		 * */
 		private void push(Node x) {
 			
 			if(this.head == null) {
@@ -55,24 +59,41 @@ public class PriorityQueue<Item> {
 
 		}	
 		
-		/**Add a new item to the queue*/
+		
+		/**Add a new item to the queue with a priority
+		 * 
+		 * @param x The new item to add
+		 * @param priority The priority of the item in the queue
+		 * */
 		public void push(Item x, int priority) {
 			//create node and add
 			Node n = new Node(x, priority);
 			this.push(n);
 		}
 		
-		/**Check the front of the queue*/
+		
+		/**Check the front of the queue
+		 * 
+		 * @return key The item next in the queue
+		 * */
 		public Item peek() {
 			return this.head.key;
 		}
 		
-		/**Returns if the queue is empty*/
+		
+		/**Returns if the queue is empty
+		 * 
+		 * @return is_empty True if the queue is empty
+		 * */
 		public boolean isEmpty() {
 			return (this.head == null);
 		}
 		
-		/**Removes the next node from the queue and returns it*/
+		
+		/**Removes the next node from the queue and returns its value
+		 * 
+		 * @return i The next item in the queue
+		 * */
 		public Item pop() {
 
 			if(this.isEmpty()) {
@@ -84,6 +105,7 @@ public class PriorityQueue<Item> {
 			return i;
 			
 		}
+		
 		
 		/**Prints a readable representation of the queue*/
 		public void print() {

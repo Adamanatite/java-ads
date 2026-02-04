@@ -41,7 +41,9 @@ public class WeightedDirectedGraph {
 	
 	private int vertices;
 	
+	//List containing all current directed graph edges
 	private List<GraphEdge>[] adjacencyList;
+	
 	
 	public WeightedDirectedGraph(int vertices) {
 		this.vertices = vertices;
@@ -54,7 +56,13 @@ public class WeightedDirectedGraph {
 		
 	}
 	
-	/*Adds a new edge to the graph*/
+	
+	/**Adds a new edge to the graph
+	 * 
+	 * @param source The source vertex of the new edge
+	 * @param destination The destination vertex of the new edge
+	 * @param weight The weight of the new edge
+	 * */
 	public void addEdge (int source, int destination, int weight) {
 		GraphEdge edge = new GraphEdge(source, destination, weight);
 		
@@ -62,12 +70,17 @@ public class WeightedDirectedGraph {
 		
 	}
 	
-	/*Gets a list of all vertices and their edges*/
+
 	public List<GraphEdge>[] getVertices(){
 		return this.adjacencyList;
 	}
 	
-	/*Performs the breadth-first search algorithm to find a node and returns it, or -1 if it is inaccessible*/
+	
+	/**Performs the breadth-first search algorithm to find a node and returns it, or -1 if it is inaccessible
+	 * 
+	 * @param s The source vertex
+	 * @param v The destination vertex
+	 * */
 	public int BFS (int s, int v) {
 		boolean[] seen = new boolean[this.vertices];
 		
@@ -98,7 +111,12 @@ public class WeightedDirectedGraph {
 		
 	}
 	
-	/*Performs the depth-first search algorithm to find a node and returns it, or -1 if it is inaccessible*/
+	
+	/**Performs the depth-first search algorithm to find a node and returns it, or -1 if it is inaccessible
+	 * 
+	 * @param s The source vertex
+	 * @param v The destination vertex
+	 * */
 	public int DFS (int s, int v) {
 		boolean[] seen = new boolean[this.vertices];
 		
@@ -127,7 +145,12 @@ public class WeightedDirectedGraph {
 		return -1;
 	}
 	
-	//Tries to find shortest distance past between s and v
+	
+	/**Tries to find shortest distance past between s and v
+	 * 
+	 * @param s The source vertex
+	 * @param v The destination vertex
+	 * */
 	public int Dijkstra (int s, int v) {
 		
 		boolean[] visited = new boolean[this.vertices];
