@@ -17,6 +17,7 @@ Implementations of common algorithms and abstract data structures in Java
 * Set (Abstract)
   * Binary search tree implementation
   * Linked list implementation
+* B-Tree
 * Stack (linked list)
 * Priority queue (linked list)
 * Weighted directed graph (adjacency list)
