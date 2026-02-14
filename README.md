@@ -12,6 +12,8 @@ Implementations of common algorithms and abstract data structures in Java
   * Hybrid sort (combined with insertion sort)
   * 3 way (Dutch national flag)
 * Heap Sort
+* Breadth-first and Depth-first search
+* Dijkstra's algorithm
 
 ### Full list of implemented data structures:
 * Set (Abstract)
